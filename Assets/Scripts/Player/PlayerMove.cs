@@ -7,23 +7,27 @@ public class PlayerMove : MonoBehaviour
 {
     [SerializeField] private float _speedMove;
 
-    private Vector3 _position;
-    private Transform _spriteTransform;
+    private Transform GFX;
+
+    private void Awake()
+    {
+        GFX = transform.GetChild(0);
+    }
 
     private void FixedUpdate()
     {
-        _position = transform.position;
+        transform.position += transform.right * _speedMove * Input.GetAxis("Horizontal");
+    }
 
-        if (Input.GetKeyUp(KeyCode.D))
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.D))
         {
-            _position.x += _speedMove;
-            _spriteTransform.localScale = new Vector3(1,1,1);
+            GFX.localScale = new Vector3(1, 1, 1);
         }
-        if (Input.GetKeyUp(KeyCode.A))
+        else if (Input.GetKey(KeyCode.A))
         {
-            _position.x -= _speedMove;
-            _spriteTransform.localScale = new Vector3(-1, 1, 1);
+            GFX.localScale = new Vector3(-1, 1, 1);
         }
-        transform.position = _position;
     }
 }

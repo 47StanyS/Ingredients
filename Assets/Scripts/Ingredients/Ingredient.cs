@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyIngredients : MonoBehaviour
+public class Ingredient : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
