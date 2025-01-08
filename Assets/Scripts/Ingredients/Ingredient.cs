@@ -8,7 +8,7 @@ public class Ingredient : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Destroy(this.gameObject);
+            GameObject.FindGameObjectsWithTag("GameController").GetComponent<GameController>()._coins++;
         }
     }
 }
