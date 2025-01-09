@@ -4,12 +4,18 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class GameController : MonoBehaviour
 {
     public static GameController instance;
+
+    [Space]
+    [Header("PlayersSettings")]
     [SerializeField] private List<GameObject> _players;
     [SerializeField] private Button _swithButton;
 
+    [Space]
+    [Header("CoinsSettings")]
     public int _coins;
 
     [SerializeField] private int _minusCoin = 5;
