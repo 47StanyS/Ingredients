@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - Trash
   - Vegetable
+  - Pot
+  - Bin
   layers:
   - Default
   - TransparentFX

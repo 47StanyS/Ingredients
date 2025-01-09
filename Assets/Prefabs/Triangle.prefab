@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5442783519886820537}
   - component: {fileID: -3689578915512954443}
   - component: {fileID: -3517458282619977190}
-  - component: {fileID: -8181150881587817800}
+  - component: {fileID: 1589787105084182037}
   m_Layer: 0
   m_Name: Triangle
   m_TagString: Vegetable
@@ -159,7 +159,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-8181150881587817800
+--- !u!114 &1589787105084182037
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

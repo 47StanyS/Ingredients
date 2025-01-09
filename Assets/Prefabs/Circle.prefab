@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 581745522366312250}
   - component: {fileID: -8108508643659048843}
   - component: {fileID: -8750909792010242911}
-  - component: {fileID: 7367977962869184695}
+  - component: {fileID: 2094850462151915265}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Vegetable
@@ -159,7 +159,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7367977962869184695
+--- !u!114 &2094850462151915265
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

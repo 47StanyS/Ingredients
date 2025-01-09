@@ -1,16 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+    public static GameController instance;
     [SerializeField] private List<GameObject> _players;
     [SerializeField] private Button _swithButton;
 
     public int _coins;
 
+    [SerializeField] private int _minusCoin = 5;
+
+    [SerializeField] private TMP_Text _coinsText;
+
     private int _currentIndex = 0;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Start()
     {
@@ -29,6 +47,17 @@ public class GameController : MonoBehaviour
         {
             SwitchPlayer();
         }
+    }
+
+    public void CollectCoinPlus()
+    {
+        _coins++;
+        _coinsText.text = _coins.ToString();
+    }
+    public void CollectCoinMinus()
+    {
+        _coins = _coins - _minusCoin;
+        _coinsText.text = _coins.ToString();
     }
 
     private void SwitchPlayer()
