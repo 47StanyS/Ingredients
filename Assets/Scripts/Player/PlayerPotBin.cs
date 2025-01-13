@@ -56,6 +56,8 @@ public class PlayerPotBin : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Vegetable")) 
             {
+                RicipeSystem.Instance.AddIngredients(collision.gameObject.GetComponent<Ingredient>());
+
                 GameController.instance.CollectCoinPlus();
                 Destroy(collision.gameObject);
             }
@@ -68,11 +70,11 @@ public class PlayerPotBin : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Vegetable"))
             {
-                GameController.instance.CollectCoinPlus();
+                GameController.instance.CollectCoinMinus();
             }
             else if (collision.gameObject.CompareTag("Trash"))
             {
-                GameController.instance.CollectCoinMinus();
+                GameController.instance.CollectCoinPlus();
                 Destroy(collision.gameObject);
             }
         }
