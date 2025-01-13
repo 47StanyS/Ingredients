@@ -10,6 +10,8 @@ public class RicipeSystem : MonoBehaviour
 
     public static RicipeSystem Instance;
 
+    // тестовий коментар
+
     private void Awake()
     {
         Instance = this;
