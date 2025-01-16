@@ -13,9 +13,9 @@ public class GameController : MonoBehaviour
     [Header("CoinsSettings")]
     public int _coins;
 
-    [SerializeField] private int _minusCoin = 5;
+    //[SerializeField] private int _minusCoin = 5;
 
-    [SerializeField] private TMP_Text _coinsText;
+    //[SerializeField] private TMP_Text _coinsText;
 
 
     private void Awake()
@@ -32,12 +32,12 @@ public class GameController : MonoBehaviour
 
     public void CollectCoinPlus()
     {
-        _coins++;
-        _coinsText.text = _coins.ToString();
+        //_coins++;
+        //_coinsText.text = _coins.ToString();
     }
     public void CollectCoinMinus()
     {
-        _coins = _coins - _minusCoin;
-        _coinsText.text = _coins.ToString();
+        //_coins = _coins - _minusCoin;
+        //_coinsText.text = _coins.ToString();
     }
 }
