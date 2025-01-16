@@ -12,8 +12,8 @@ public class RicipeSystem : MonoBehaviour
     // сінглтон, це надання доступу до об'єкту, скрипту, через скріпт(замііняє звернення по тегу, леєру)
     public static RicipeSystem Instance;
 
-
-
+    public ReciepeUI reciepeUI;
+    
     private void Awake()
     {//ініциалізація сінглтону
         Instance = this;
@@ -60,6 +60,8 @@ public class RicipeSystem : MonoBehaviour
 
             GroundManager.Instance.ReciepeCrafted();
         }
+
+        reciepeUI.Refresh();
     }
     // метод що створює нову копію поточного з списку рецепта але з інтом на 0
     public void CraftRecipe()
@@ -68,6 +70,8 @@ public class RicipeSystem : MonoBehaviour
         currentReciepe.counts = new int[recipes[0].counts.Length];
 
         currentReciepe.originalReciepe = recipes[0];
+
+        reciepeUI.NewReciepe(recipes[0]);
     }
 }
 //за допомогою цього рядка можна бачити клас в інспекторі
