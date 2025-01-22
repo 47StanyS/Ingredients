@@ -8,23 +8,25 @@ public class MainMenu : MonoBehaviour
 {
     public Animator _animator;
     public GameObject _button;
-    private void Awake()
-    {
 
-        //_animator = GetComponent<Animator>();
+    private bool _pressed = false;
 
-    }
-    private void Start()
-    {
-        _animator = GetComponent<Animator>();
-        _animator.Play("IdleOptionWindow");
-    }
     public void Play()
     {
         SceneManager.LoadScene(1);
     }
+
     public void Options()
     {
-        _animator.Play("OpenOptionWindow");
+        if (_pressed) 
+        {
+            _pressed = false;
+            _animator.Play("CloseOptionWindow");
+        }
+        else 
+        {
+            _pressed = true;
+            _animator.Play("OpenOptionWindow");
+        }
     }
 }
