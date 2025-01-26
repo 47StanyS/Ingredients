@@ -10,10 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28d2295dc5c461141bf64b2694b3e364, type: 3}
-  m_Name: Recipe1
+  m_Name: Recipe7
   m_EditorClassIdentifier: 
   ingredients:
   - {fileID: 1589787105084182037, guid: 9006487f04cb36249b8ba10bc6c92998, type: 3}
   - {fileID: 2094850462151915265, guid: 4e2569134662e0744b0ce764fc915b9f, type: 3}
-  counts: 0500000001000000
-  result: {fileID: 880391024101689526, guid: 6fcbb9096728da341a617e711e34fa15, type: 3}
+  - {fileID: 1589787105084182037, guid: 0b1e2cb84d49c5e4fabf110993c67a77, type: 3}
+  - {fileID: 1589787105084182037, guid: a2dd6f74885330b438b47c3058610808, type: 3}
+  - {fileID: 1589787105084182037, guid: ed941b663c0e97144b154b3df719ced3, type: 3}
+  - {fileID: 1589787105084182037, guid: 2ee706ef90d24544b9606374b72cbe78, type: 3}
+  counts: 0800000002000000070000000300000009000000
+  result: {fileID: 880391024101689526, guid: 54618358f7a0a054e9ab0f2964a94615, type: 3}

@@ -37,6 +37,10 @@ public class RicipeSystem : MonoBehaviour
                 currentReciepe.counts[i]++;
                 break;
             }
+            else
+            {
+                GroundManager.Instance.NextStep();
+            }
         }
         
         bool isReady = true;
