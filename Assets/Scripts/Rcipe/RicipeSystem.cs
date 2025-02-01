@@ -7,18 +7,28 @@ public class RicipeSystem : MonoBehaviour
 
     //ця строка відповідає за спиок рицептів яку ми отримуєм через інспектор, не розумію нашо писати "новий"
     public List<Recipe> recipes = new List<Recipe>();
+
     // це екземпряр поточного нового рецепту який ми зараз маємо, робиться для того щоб при завершені все що ми назбирали скидалось на нуль.
     public CurrentReciepe currentReciepe = new CurrentReciepe();
+
     // сінглтон, це надання доступу до об'єкту, скрипту, через скріпт(замііняє звернення по тегу, леєру)
     public static RicipeSystem Instance;
+    private IngredientsSpawner _IngredientsSpawner;
+
+    //public int _complitedRecipeCount = 0;
 
     public ReciepeUI reciepeUI;
+    public GameController _gameController;
     
     private void Awake()
     {//ініциалізація сінглтону
         Instance = this;
+        _IngredientsSpawner = IngredientsSpawner.Instance;
+        _gameController = GameController.instance;
+
         //масив рецептів, перед стартом додаються всі рецепти що є в папці ресурси 
         Recipe[] newRecipes = Resources.LoadAll<Recipe>("Recipes");
+
         //цикл додавання рецептів, перебераючи по довжені 
         for (int i = 0; i < newRecipes.Length; i++) 
         {
@@ -29,7 +39,8 @@ public class RicipeSystem : MonoBehaviour
     }
     //метод додавання інгредієнту(звернення до скріпту Інгрєдієнт запис його в змінну)
     public void AddIngredients(Ingredient newIngredient)
-    {// цикил який збирає інгрідієнти за іменами і складає їх в масив цілих чисел поточного рецепту
+    {
+        // цикил який збирає інгрідієнти за іменами і складає їх в масив цілих чисел поточного рецепту
         for (int i = 0; i < currentReciepe.ingredients.Count; i++) 
         {
             if (currentReciepe.ingredients[i].nameIngredient == newIngredient.nameIngredient) 
@@ -39,11 +50,12 @@ public class RicipeSystem : MonoBehaviour
             }
             else
             {
-                GroundManager.Instance.NextStep();
+                //roundManager.Instance.NextStep();
             }
         }
         
         bool isReady = true;
+
         //цикл для перевірки на готовність рецепту, поки і менща за кількість зібраних інгредієнтів, то додати інгрідієнт
         for (int i = 0; i < currentReciepe.ingredients.Count; i++)
         {
@@ -55,6 +67,7 @@ public class RicipeSystem : MonoBehaviour
                 break;
             }
         }
+
         //якщо готов, видаляється цей рецепт з списку, вмикається метод створення нового рецепту, та через сінглтон 
         //вмикається метод який опускає землю
         if (isReady == true) 
@@ -62,8 +75,15 @@ public class RicipeSystem : MonoBehaviour
             recipes.Remove(currentReciepe.originalReciepe);
             CraftRecipe();
 
+            _gameController._complitedRecipeCount++;
+
             GroundManager.Instance.ReciepeCrafted();
         }
+
+      // if(_complitedRecipeCount == 3)
+      // {
+      //     IncreaseDifficulty();
+      // }
 
         reciepeUI.Refresh();
     }
@@ -77,9 +97,15 @@ public class RicipeSystem : MonoBehaviour
 
         reciepeUI.NewReciepe(recipes[0]);
     }
+  //  public void IncreaseDifficulty()
+  //  {
+  //      float[] _newRates = { 0.2f, 0.2f, 0f, 0.2f,0.2f,0.2f,1};
+  //      IngredientsSpawner.Instance.SetSpawnRate(_newRates);
+  //  }
 }
 //за допомогою цього рядка можна бачити клас в інспекторі
 [System.Serializable]
+
 //клас завдяки якому ми порівнюємо зібрану кількість з написаними вже рецептами
 public class CurrentReciepe 
 {

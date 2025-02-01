@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -7,37 +7,51 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+    public GameObject _cookingScreen;
+
     public static GameController instance;
+    private RicipeSystem _ricipeSystem;
+    private IngredientsSpawner _ingredientsSpawner;
 
-    [Space]
-    [Header("CoinsSettings")]
-    public int _coins;
-
-    //[SerializeField] private int _minusCoin = 5;
-
-    //[SerializeField] private TMP_Text _coinsText;
-
+    public int _complitedRecipeCount = 0;
 
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        instance = this;
+        _ricipeSystem = RicipeSystem.Instance;
+        _ingredientsSpawner = IngredientsSpawner.Instance;
     }
 
-    public void CollectCoinPlus()
+    private void Start()
     {
-        //_coins++;
-        //_coinsText.text = _coins.ToString();
+        _ingredientsSpawner = IngredientsSpawner.Instance;
+
+        if (_ingredientsSpawner == null)
+        {
+           // Debug.LogWarning("⚠️ IngredientsSpawner.Instance == null, шукаємо вручну...");
+            _ingredientsSpawner = FindObjectOfType<IngredientsSpawner>();
+        }
     }
-    public void CollectCoinMinus()
+    private void Update()
     {
-        //_coins = _coins - _minusCoin;
-        //_coinsText.text = _coins.ToString();
+        CookingScreenOpen();
+    }
+    public void CookingScreenOpen()
+    {
+       // Debug.Log($"_cookingScreen: {_cookingScreen}");
+       // Debug.Log($"_ingredientsSpawner: {_ingredientsSpawner}");
+
+        if (_cookingScreen == null || _ingredientsSpawner == null)
+        {
+            // Debug.LogError("❌ CookingScreen або IngredientsSpawner не ініціалізовані!");
+            return;
+        }
+        if (_complitedRecipeCount == 1)
+        {
+            _complitedRecipeCount = 0;
+            _cookingScreen.SetActive(true);
+            _ingredientsSpawner._canSpawn = false;
+            
+        }
     }
 }

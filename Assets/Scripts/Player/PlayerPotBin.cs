@@ -58,23 +58,23 @@ public class PlayerPotBin : MonoBehaviour
             {
                 RicipeSystem.Instance.AddIngredients(collision.gameObject.GetComponent<Ingredient>());
 
-                GameController.instance.CollectCoinPlus();
+                //GameController.instance.CollectCoinPlus();
                 Destroy(collision.gameObject);
             }
             else if (collision.gameObject.CompareTag("Trash"))
             {
-                GameController.instance.CollectCoinMinus();
+                //GameController.instance.CollectCoinMinus();
             }
 
         } else if (_currentIndex == 1)
         {
             if (collision.gameObject.CompareTag("Vegetable"))
             {
-                GameController.instance.CollectCoinMinus();
+               // GameController.instance.CollectCoinMinus();
             }
             else if (collision.gameObject.CompareTag("Trash"))
             {
-                GameController.instance.CollectCoinPlus();
+                //GameController.instance.CollectCoinPlus();
                 Destroy(collision.gameObject);
             }
         }

@@ -13,7 +13,5 @@ MonoBehaviour:
   m_Name: Recipe0
   m_EditorClassIdentifier: 
   ingredients:
-  - {fileID: 2094850462151915265, guid: 4e2569134662e0744b0ce764fc915b9f, type: 3}
-  - {fileID: 1589787105084182037, guid: 9006487f04cb36249b8ba10bc6c92998, type: 3}
-  counts: 0200000003000000
-  result: {fileID: 880391024101689526, guid: 54618358f7a0a054e9ab0f2964a94615, type: 3}
+  - {fileID: 1589787105084182037, guid: e97010ba1019e96458de37d3bd6b7407, type: 3}
+  counts: 03000000

@@ -8,5 +8,7 @@ public class Recipe : ScriptableObject
     public List<Ingredient> ingredients = new List<Ingredient>();
     public int[] counts;
 
-    public GameObject result;
+    //public GameObject result;
+
+
 }
