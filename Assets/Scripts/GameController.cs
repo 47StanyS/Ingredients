@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         _ingredientsSpawner = IngredientsSpawner.Instance;
-
+        // чомусь  нормально функціанує тільки з цією функцією 
         if (_ingredientsSpawner == null)
         {
            // Debug.LogWarning("⚠️ IngredientsSpawner.Instance == null, шукаємо вручну...");
