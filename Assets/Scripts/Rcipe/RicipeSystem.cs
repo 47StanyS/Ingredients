@@ -35,7 +35,7 @@ public class RicipeSystem : MonoBehaviour
             recipes.Add(newRecipes[i]);
         }
         //метод 
-        CraftRecipe();
+        //CraftRecipe();
     }
     //метод додавання інгредієнту(звернення до скріпту Інгрєдієнт запис його в змінну)
     public void AddIngredients(Ingredient newIngredient)
@@ -97,11 +97,6 @@ public class RicipeSystem : MonoBehaviour
 
         reciepeUI.NewReciepe(recipes[0]);
     }
-  //  public void IncreaseDifficulty()
-  //  {
-  //      float[] _newRates = { 0.2f, 0.2f, 0f, 0.2f,0.2f,0.2f,1};
-  //      IngredientsSpawner.Instance.SetSpawnRate(_newRates);
-  //  }
 }
 //за допомогою цього рядка можна бачити клас в інспекторі
 [System.Serializable]

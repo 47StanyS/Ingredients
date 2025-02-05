@@ -7,8 +7,11 @@ public class IngredientsSpawner : MonoBehaviour
     [Header("General")]
     [SerializeField] private float _spawnTime;
 
+    [Header("Difficulty")]
+    [SerializeField] private int currentDifficultyLevel;
+    [SerializeField] private DifficultyLevel[] difficultyLevels;
+
     [Header("Ingredients")]
-    [SerializeField][Range (0, 1)] public float[] _spawnRate;
     [SerializeField] private GameObject[] _ingredientsPrefabs;
     [SerializeField] private Transform _ingredientsContainer;
 
@@ -36,7 +39,7 @@ public class IngredientsSpawner : MonoBehaviour
 
             GameObject randomIngredient = _ingredientsPrefabs[randomIngredientIndex];
 
-            if (Random.Range(0f, 1f) < _spawnRate[randomIngredientIndex])
+            if (Random.Range(0f, 1f) < difficultyLevels[currentDifficultyLevel].spawnRate[randomIngredientIndex])
             {
                 Transform randomPoint = _spawnPoints[Random.Range(0, _spawnPoints.Length)];
 
@@ -49,7 +52,8 @@ public class IngredientsSpawner : MonoBehaviour
             }
             else
             {
-                SpawnRandomIngredient();
+                if(difficultyLevels[currentDifficultyLevel].spawnRate[randomIngredientIndex] > 0)
+                    SpawnRandomIngredient();
             }
         }
 
@@ -61,6 +65,11 @@ public class IngredientsSpawner : MonoBehaviour
         SpawnRandomIngredient();
         StartCoroutine(SpawnIngredientTimer());
 
+    }
+
+    public void NextDifficultyLevel() 
+    {
+        currentDifficultyLevel++;
     }
 
   // public void SetSpawnRate(float[] _newRates)

@@ -56,7 +56,7 @@ public class PointController : MonoBehaviour
             _successCount++;
             Debug.Log("Seccess");
             MoveRandomY();
-            SizeRandomX();
+            SizeRandomY();
             _moveSpeed = Random.Range(500,1500);
         }
         else
@@ -64,7 +64,7 @@ public class PointController : MonoBehaviour
             _attempsLeft--;
             Debug.Log("Fail");
             MoveRandomY();
-            SizeRandomX();
+            SizeRandomY();
             _moveSpeed = Random.Range(500,1500);
         }
 
@@ -72,6 +72,8 @@ public class PointController : MonoBehaviour
         {
             _gameController._cookingScreen.SetActive(false);
             _ingredientsSpawner._canSpawn = true;
+
+            _ingredientsSpawner.NextDifficultyLevel();
         }
 
     }
@@ -80,7 +82,7 @@ public class PointController : MonoBehaviour
         float randomY = Random.Range(240, -280);
         _safeZone.anchoredPosition = new Vector2(_safeZone.anchoredPosition.x, randomY);
     }
-    private void SizeRandomX()
+    private void SizeRandomY()
     {
         float _randomY = Random.Range(50f, 150f);
         _safeZone.sizeDelta = new Vector2(_safeZone.sizeDelta.x, _randomY);

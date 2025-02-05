@@ -31,6 +31,8 @@ public class BorshUI : MonoBehaviour
     {
         _recieptScreenTwo.SetActive(false);
         _ingredientsSpawner._canSpawn = true;
+
+        RicipeSystem.Instance.CraftRecipe();
     }
     public void ScreenChange()
     {
