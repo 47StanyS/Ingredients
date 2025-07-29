@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: 1
   m_EditorClassIdentifier: 
   spawnRate:
+  - 0.513
+  - 0.513
+  - 1
   - 0
   - 0
   - 0
   - 0
   - 0
-  - 0
-  - 0
-  - 0.152
